@@ -8,9 +8,6 @@ on:
     types:
       - published
 
-env:
-  TAG_NAME: ${{ github.event.release.tag_name }}
-
 defaults:
   run:
     shell: pwsh 
@@ -53,6 +50,8 @@ jobs:
         }
         Write-Output "Version = $Version"
         dotnet msbuild -p:RestorePackages=false -p:Configuration=Release -p:DebugSymbols=false -p:DebugType=None -p:Version=$Version
+      env:
+        TAG_NAME: ${{ github.event.release.tag_name }}
 
     - name: Upload packages
       uses: actions/upload-artifact@v3
