@@ -90,7 +90,6 @@ jobs:
 
     - name: Push Yak Packages
       run: |
-        & yak login
         Get-ChildItem "build-windows-latest" -Filter "*.yak" | Foreach-Object {
             & yak push $_.FullName
         }
