@@ -92,10 +92,10 @@ jobs:
       run: |
         & yak login
         Get-ChildItem "build-windows-latest" -Filter "*.yak" | Foreach-Object {
-            # & yak push $_.FullName
+            & yak push $_.FullName
         }
         Get-ChildItem "build-macOS-latest" -Filter "*.yak" | Foreach-Object {
-            # & yak push $_.FullName
+            & yak push $_.FullName
         }
       env:
         YAK_TOKEN: ${{ secrets.YAK_TOKEN }}
