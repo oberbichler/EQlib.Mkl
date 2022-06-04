@@ -27,6 +27,10 @@
 	</ItemGroup>
 
 	<Target Name="GrasshopperPlugin" AfterTargets="Build">
+		<Delete Files="$(OutDir)/System.Buffers.dll" />
+		<Delete Files="$(OutDir)/System.Memory.dll" />
+		<Delete Files="$(OutDir)/System.Numerics.dll" />
+		<Delete Files="$(OutDir)/System.Numerics.Vectors.dll" />
 		<Move SourceFiles="$(ProjectDir)$(OutDir)$(TargetFileName)" DestinationFiles="$(ProjectDir)$(OutDir)$(TargetName).gha" OverwriteReadOnlyFiles="true" />
 	</Target>
 
