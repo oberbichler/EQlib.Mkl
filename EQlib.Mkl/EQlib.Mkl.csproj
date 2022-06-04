@@ -50,7 +50,7 @@
 				<PackageReference Include="inteltbb.devel.osx" Version="2021.5.0.706" GeneratePathProperty="true" ExcludeAssets="all" />
 			</ItemGroup>
 			<ItemGroup>
-				<Content Include="$(Pkgintelopenmp_devel_osx)\mac\compiler\lib\*.dylib" CopyToOutputDirectory="PreserveNewest" Visible="false" />
+				<Content Include="$(Pkgintelopenmp_devel_osx)\lib\native\osx-x64\*.dylib" CopyToOutputDirectory="PreserveNewest" Visible="false" />
 				<Content Include="$(Pkgintelmkl_devel_osx-x64)\lib\native\osx-x64\*.dylib" CopyToOutputDirectory="PreserveNewest" Visible="false" />
 			</ItemGroup>
 		</When>
