@@ -46,7 +46,7 @@
 			</PropertyGroup>
 			<ItemGroup>
 				<PackageReference Include="intelmkl.devel.osx-x64" Version="2021.2.0.269" GeneratePathProperty="true" ExcludeAssets="all" />
-				<PackageReference Include="intelopenmp.devel.osx" Version="2022.0.0.3615" GeneratePathProperty="true" ExcludeAssets="all" />
+				<PackageReference Include="intelopenmp.devel.osx" Version="2021.4.0.3538" GeneratePathProperty="true" ExcludeAssets="all" />
 				<PackageReference Include="inteltbb.devel.osx" Version="2021.5.0.706" GeneratePathProperty="true" ExcludeAssets="all" />
 			</ItemGroup>
 			<ItemGroup>
