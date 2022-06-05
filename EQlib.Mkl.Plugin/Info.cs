@@ -13,7 +13,7 @@ public class PluginInfo : GH_AssemblyInfo
 
 	public override string Description { get; } = "Interface to Intel oneAPI Math Kernel Library (Intel oneMKL) for EQlib";
 
-	public override Guid Id { get; } = new("{6485DEEA-2E92-4F13-9C82-168720846C16}");
+	public override Guid Id { get; } = new("{3FCF3A6F-F546-4D1A-B768-3C9304D701A9}");
 
 	public override string AuthorName { get; } = "Thomas Oberbichler";
 
