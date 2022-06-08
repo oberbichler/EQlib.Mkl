@@ -22,8 +22,7 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\EQlib.Mkl\EQlib.Mkl.csproj" />
-		<PackageReference Include="RhinoCommon" Version="7.15.22039.13001" />
-		<PackageReference Include="Grasshopper" Version="7.15.22039.13001" />
+		<PackageReference Include="Grasshopper" Version="7.18.22124.3001" />
 	</ItemGroup>
 
 	<Target Name="GrasshopperPlugin" AfterTargets="Build">
