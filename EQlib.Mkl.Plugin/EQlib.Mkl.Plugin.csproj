@@ -25,6 +25,37 @@
 		<PackageReference Include="Grasshopper" Version="7.18.22124.3001" />
 	</ItemGroup>
 
+	<Choose>
+		<When Condition="$([MSBuild]::IsOsPlatform(Windows))">
+			<PropertyGroup>
+				<DefineConstants>Windows</DefineConstants>
+			</PropertyGroup>
+			<ItemGroup>
+				<PackageReference Include="intelmkl.redist.win-x64" Version="2022.0.3.171" GeneratePathProperty="true" ExcludeAssets="all" />
+				<PackageReference Include="intelopenmp.redist.win" Version="2022.0.3.3747" GeneratePathProperty="true" ExcludeAssets="all" />
+				<PackageReference Include="inteltbb.redist.win" Version="2021.5.2.785" GeneratePathProperty="true" ExcludeAssets="all" />
+			</ItemGroup>
+			<ItemGroup>
+				<Content Include="$(Pkgintelopenmp_redist_win)\runtimes\win-x64\native\*.dll" CopyToOutputDirectory="PreserveNewest" Visible="false" />
+				<Content Include="$(Pkgintelmkl_redist_win-x64)\runtimes\win-x64\native\*.dll" CopyToOutputDirectory="PreserveNewest" Visible="false" />
+			</ItemGroup>
+		</When>
+		<When Condition="$([MSBuild]::IsOsPlatform(OSX))">
+			<PropertyGroup>
+				<DefineConstants>OSX</DefineConstants>
+			</PropertyGroup>
+			<ItemGroup>
+				<PackageReference Condition="$(DefineConstants.Contains('INCLUDE_MKL_RUNTIME'))" Include="intelmkl.devel.osx-x64" Version="2021.2.0.269" GeneratePathProperty="true" ExcludeAssets="all" />
+				<PackageReference Condition="$(DefineConstants.Contains('INCLUDE_MKL_RUNTIME'))" Include="intelopenmp.devel.osx" Version="2021.4.0.3538" GeneratePathProperty="true" ExcludeAssets="all" />
+				<PackageReference Condition="$(DefineConstants.Contains('INCLUDE_MKL_RUNTIME'))" Include="inteltbb.devel.osx" Version="2021.5.0.706" GeneratePathProperty="true" ExcludeAssets="all" />
+			</ItemGroup>
+			<ItemGroup>
+				<Content Include="$(Pkgintelopenmp_devel_osx)\lib\native\osx-x64\*.dylib" CopyToOutputDirectory="PreserveNewest" Visible="false" />
+				<Content Include="$(Pkgintelmkl_devel_osx-x64)\lib\native\osx-x64\*.dylib" CopyToOutputDirectory="PreserveNewest" Visible="false" />
+			</ItemGroup>
+		</When>
+	</Choose>
+
 	<Target Name="GrasshopperPlugin" AfterTargets="Build">
 		<Delete Files="$(ProjectDir)$(OutDir)/System.Buffers.dll" />
 		<Delete Files="$(ProjectDir)$(OutDir)/System.Memory.dll" />
