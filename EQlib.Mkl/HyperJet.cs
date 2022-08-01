@@ -184,7 +184,7 @@ public class HyperJet
 			fixed (double* rPtr = r)
 			{
 				cblas_dcopy(n, bPtr, 1, rPtr, 1);
-				bPtr[0] += a;
+				rPtr[0] += a;
 			}
 		}
 	}
