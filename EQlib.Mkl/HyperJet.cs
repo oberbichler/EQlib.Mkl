@@ -725,7 +725,7 @@ public class HyperJet
 
 					var cb = dbdb * bi;
 
-					cblas_daxpy(m, cb, b1Ptr, 1, kPtr, 1);
+					cblas_daxpy(m, cb, b1Ptr + i, 1, kPtr, 1);
 
 					kPtr += m;
 				}
