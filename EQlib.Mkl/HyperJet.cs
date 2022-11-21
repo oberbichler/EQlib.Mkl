@@ -581,11 +581,7 @@ public class HyperJet
 			fixed (double* bPtr = b)
 			fixed (double* rPtr = r)
 			{
-				rPtr[0] = a * bPtr[0];
-
-				var db = a;
-
-				cblas_daxpy(n, db, bPtr, 1, rPtr, 1);
+				cblas_daxpy(n, a, bPtr, 1, rPtr, 1);
 			}
 		}
 	}
